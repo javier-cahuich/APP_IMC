@@ -10,10 +10,13 @@ using System.Windows.Input;
 
 public class MainViewModel : INotifyPropertyChanged
 {
+    //Comando para el boton calcular 
     public ICommand CalcularIMCCommand { get; }
 
+    //Constructor de la clase
     public MainViewModel()
     {
+        //Inicializar el comando para el boton Calcular 
         CalcularIMCCommand = new Command(CalcularIMC);
         Persona = new Persona();
     }
@@ -54,14 +57,14 @@ public class MainViewModel : INotifyPropertyChanged
         else
             Persona.EstadoNutricional = "Obesidad extrema";
 
+        //notificar a las vistas que la propiedad Persona ha cambiado
         OnPropertyChanged(nameof(Persona));
     }
 
+    //notificar cambios en las propiedades a las vistas
     protected virtual void OnPropertyChanged(string propertyName)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }
-// Gravedad	Código	Descripción	Proyecto	Archivo	Línea	Estado suprimido
-//Error CS0111		APP_IMC (net7.0-android), APP_IMC(net7.0 - ios), APP_IMC(net7.0 - maccatalyst), APP_IMC(net7.0 - windows10.0.19041.0)  C: \Users\Francisco\OneDrive\Documentos\TECNM\APP_IMC\APP_IMC\ViewModel\MainViewModel.cs	36	Activo
 
